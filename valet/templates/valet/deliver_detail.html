@@ -1,0 +1,123 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUWANNgM2psYx6kC2neaKS0vMd3Zd1aBU&callback=myMap"></script>
+    <script>
+        function myMap() {
+            var mapProp= {
+                center:new google.maps.LatLng(39.961200, -82.998800),
+                zoom:10
+            };
+            elems = document.getElementsByClassName('googleMap');
+            /*
+            var mapProp2= {
+                center:new google.maps.LatLng(39.961200, -82.998800), zoom:10
+            };
+            */
+            for (var i=0;i<elems.length;i++){
+                var map=new google.maps.Map(elems[i],mapProp);
+            }
+
+            // var map2=new google.maps.Map(document.getElementsByClassName("googleMap"),mapProp);
+        }
+    </script>
+
+	<img src="{% static 'crowdshipping/img/valet.png' %}" class="responsive-img" style='height:50px;width:160px;display: block;margin: auto' alt="Valet">
+	<br>
+
+    <h4>Overview</h4>
+    <h5>It is now: {% now "jS F Y H:i" %}.</h5>
+    <h5>Total number of orders: {{ order_list|length }}</h5>
+
+    <div class="container-fluid">
+
+        {% for order in order_list %}
+
+            <div class="thumbnail">
+
+            <div class="row">
+            {% comment %}
+
+                <div class="col-xs-2">
+                    <img src="/valet/media/{{ item.image }}" class="img-responsive" alt="{{ item.name }}" align="bottom">
+
+                </div>
+            {% endcomment %}
+
+                <div class="col-xs-3">
+
+                    <p>Order #: {{ order.id }}</p>
+
+                        {% for item in order.item.all %}
+                        <p>{{ item.name }}</p>
+                        {% endfor %}
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Delivered
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-3" style="display: table;">
+
+                    <span style="font-size:20px;vertical-align: middle;display: table-cell">
+                        Start Navigation!
+                    </span>
+                    <span><img src="{% static 'crowdshipping/img/navigate.png' %}" class="responsive-img" style="width:50px;height:50px; vertical-align: middle;display: table-cell"></span>
+
+
+                    {% comment %}
+                    <div style="vertical-align: bottom; text-align: center;">
+
+                        <h4 style="vertical-align: middle;">
+                            Start Navigation!
+                                <img src="{% static 'crowdshipping/img/navigate.png' %}" class="responsive-img" style="width:50px;height:50px;">
+                        </h4>
+                    </div>
+                    {% endcomment %}
+                </div>
+
+                <div class="col-xs-6">
+
+                    <div class="googleMap" style="width:100%;height:300px;"></div>
+
+                </div>
+            </div>
+
+            </div>
+
+        
+        {% empty %}
+            <p>No orders available.</p>
+        {% endfor %}
+
+    <a href="{% url 'valet:deliver' driver_id %}" class="btn-yellow"><span>DONE</span></a>
+    </div>
+    <style>
+        label {
+    display: block;
+    position: relative;
+    font-size: 15px;
+    vertical-align: middle;
+        }
+        input {
+      width: 25px;
+      height: 25px;
+      padding: 0;
+      margin:0;
+        top: -4px;
+      vertical-align: middle;
+      position: relative;
+      *overflow: hidden;
+        }
+        input:checked {
+        height: 25px;
+        width: 25px;
+        }
+    {% include "crowdshipping/includes/btn-yellow.css" %}
+    </style>
+
+{% endblock %}

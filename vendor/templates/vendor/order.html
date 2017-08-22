@@ -1,0 +1,39 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'crowdshipping/css/btn-yellow.css' %}">
+	<center>
+	<img src="{% static 'crowdshipping/img/vendor.png' %}" class="responsive-img" style='height:50px;width:200px;' alt="Vendor">
+	</center>
+	<br>
+    <div class="container-fluid">
+
+    {% if order_list %}
+
+        {% for order in order_list %}
+        <div class="thumbnail">
+        <div class="row" style="margin-left: 20px;">
+            <p>Order #: {{ order.id }}</p>
+            <p>Order time: {{ order.date }}</p>
+
+            {% for item in order.item.all %}
+                <p>{{ item }}</p>
+            {% endfor %}
+            <a href="#" class="btn-yellow"><span>Accept</span></a>
+
+        </div>
+
+
+        </div>
+        {% endfor %}
+
+
+    {% else %}
+        <p>No items are available.</p>
+    {% endif %}
+
+
+    </div>
+
+
+{% endblock %}

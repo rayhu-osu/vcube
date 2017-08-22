@@ -1,0 +1,61 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+
+	<center>
+	<img src="{% static 'crowdshipping/img/vip.png' %}" class="responsive-img" style='height:50px;width:150px;' alt="VIP">
+	</center>
+	<br>
+    <div class="container-fluid">
+
+    {% if category_list %}
+        <div class="thumbnail">
+            <p>Shop at Marketplace</p>
+            
+            <div class="row">
+
+                {% for category in category_list %}
+                <div class="col-xs-2">
+                    <a href="{% url 'vip:category' category.name %}">
+                    <img src="{{ category.image.url }}" class="img-responsive" alt="{{ category.name }}" align="top">
+                        <p align="middle">{{ category.name }}</p>
+                    </a>
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="thumbnail">
+
+            <p>Shop at Store</p>
+
+            <div class="row">
+
+                {% for store in store_list %}
+
+                <div class="col-xs-2">
+                    <a href="{% url 'vip:store' store.id %}">
+                    <img src="{{ store.image.url }}" class="img-responsive" alt="{{ store.name }}" align="bottom">
+                        <p align="middle">{{ store.name }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+
+
+    {% else %}
+        <p>No categories are available.</p>
+    {% endif %}
+
+
+    </div>
+
+
+{% endblock %}

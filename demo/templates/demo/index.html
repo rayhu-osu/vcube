@@ -1,0 +1,9 @@
+{% if number_list %}
+    <ul>
+    {% for number in number_list %}
+        <li><a href="/demo/{{ number.id }}/"> Group {{number.id}}: {{ number.number_1 }}, {{ number.number_2 }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No demo are available.</p>
+{% endif %}

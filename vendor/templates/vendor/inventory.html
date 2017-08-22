@@ -1,0 +1,46 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+
+	<center>
+	<img src="{% static 'crowdshipping/img/vendor.png' %}" class="responsive-img" style='height:50px;width:200px;' alt="VIP">
+	</center>
+	<br>
+    <div class="container-fluid">
+
+    {% if item_list %}
+
+        {% for item in item_list %}
+        <div class="thumbnail">
+            
+            <div class="row">
+
+                <div class="col-xs-2">
+
+                <img src="/vip/media/{{ item.image }}" class="img-responsive" alt="{{ item.name }}" align="left">
+                </div>
+
+                <div class="col-xs-10">
+                    <p>{{ item.name }}</p>
+                    <p>${{ item.price }}</p>
+					<p>{{ item.description }}</p>
+                    <p>Qty: {{item.qty}}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {% endfor %}
+
+
+    {% else %}
+        <p>No inventory available.</p>
+    {% endif %}
+
+
+    </div>
+
+
+{% endblock %}

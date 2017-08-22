@@ -1,0 +1,105 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+
+
+	<img src="{% static 'crowdshipping/img/valet.png' %}" class="responsive-img" style='height:50px;width:160px;display: block;margin: auto' alt="Valet">
+
+	<br>
+
+<div id="myDIV" style="background-color: #FFD700; color: #DC143C; width: 635px; padding: 3px 3px;text-align: center">
+  <h4>My Schedule Next Week</h4>
+</div>
+
+<div>
+<br>
+<form method="post" action="/valet/{{ driver_id }}/">
+{% csrf_token %}
+
+    <div class="row">
+        <div class="col-xs-2">
+            <input type="checkbox" id="checks1" name="checks" value="sunday">
+            <label for="checks1">Sunday</label><br>
+            <input type="checkbox" id="checks2" name="checks" value="monday">
+            <label for="checks2">Monday</label><br>
+            <input type="checkbox" id="checks3" name="checks" value="tuesday">
+            <label for="checks3">Tuesday</label><br>
+            <input type="checkbox" id="checks4" name="checks" value="wednesday">
+            <label for="checks4">Wednesday</label><br>
+            <input type="checkbox" id="checks5" name="checks" value="thursday">
+            <label for="checks5">Thursday</label><br>
+            <input type="checkbox" id="checks6" name="checks" value="friday">
+            <label for="checks6">Friday</label><br>
+            <input type="checkbox" id="checks7" name="checks" value="saturday">
+            <label for="checks7">Saturday</label><br>
+
+        </div>
+
+
+        <div class="col-xs-5">
+
+            <label for="start_sun">Start: </label>
+            <input type="text" id="start_sun" name="start_sun" placeholder="Start time">
+            <label for="end_sun">End: </label>
+            <input type="text" id="end_sun" name="end_sun" placeholder="End time">
+            <br>
+
+            <label for="start_mon">Start: </label>
+            <input type="text" id="start_mon" name="start_mon" placeholder="Start time">
+            <label for="end_mon">End: </label>
+            <input type="text" id="end_mon" name="end_mon" placeholder="End time">
+            <br>
+
+            <label for="start_tue">Start: </label>
+            <input type="text" id="start_tue" name="start_tue" placeholder="Start time">
+            <label for="end_tue">End: </label>
+            <input type="text" id="end_tue" name="end_tue" placeholder="End time">
+            <br>
+
+
+            <label for="start_wed">Start: </label>
+            <input type="text" id="start_wed" name="start_wed" placeholder="Start time">
+            <label for="end_wed">End: </label>
+            <input type="text" id="end_wed" name="end_wed" placeholder="End time">
+            <br>
+
+
+            <label for="start_thu">Start: </label>
+            <input type="text" id="start_thu" name="start_thu" placeholder="Start time">
+            <label for="end_thu">End: </label>
+            <input type="text" id="end_thu" name="end_thu" placeholder="End time">
+            <br>
+
+
+
+            <label for="start_fri">Start: </label>
+            <input type="text" id="start_fri" name="start_fri" placeholder="Start time">
+            <label for="end_fri">End: </label>
+            <input type="text" id="end_fri" name="end_fri" placeholder="End time">
+            <br>
+
+
+
+            <label for="start_sat">Start: </label>
+            <input type="text" id="start_sat" name="start_sat" placeholder="Start time">
+            <label for="end_sat">End: </label>
+            <input type="text" id="end_sat" name="end_sat" placeholder="End time">
+            <br>
+            <br>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+<input type="submit" value="Update" style="background-color: #FFD700; color: #DC143C; width: 635px; padding: 3px 3px;text-align: center">
+
+</form>
+
+</div>
+
+{% endblock %}

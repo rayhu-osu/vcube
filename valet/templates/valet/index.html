@@ -1,0 +1,26 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+    <style>
+        {% include 'crowdshipping/includes/btn-yellow.css' %}
+    </style>
+	<img src="{% static 'crowdshipping/img/valet.png' %}" class="responsive-img" style='height:50px;width:160px;display: block;margin: auto' alt="Valet">
+    {% comment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'crowdshipping/css/btn-yellow.css' %}">
+    {% endcomment %}
+	<br>
+<div class="thumbnail">
+    <div class="row">
+        <div class="col-xs-12">
+			      
+            <a href="availability" class="btn-yellow"><span>Update Availability</span></a>
+            <br>
+            <br>
+            <a href="order" class="btn-yellow"><span>Accept Orders</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

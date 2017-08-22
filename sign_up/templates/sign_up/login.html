@@ -1,0 +1,40 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+
+<br>
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="/sign_up/login/">
+{% csrf_token %}
+
+  {{ form.user_type.label_tag }}
+  {{ form.user_type }}
+    <br>
+  {{ form.username.label_tag }}
+  {{ form.username }}
+    <br>
+  {{ form.password.label_tag }}
+  {{ form.password }}
+    <br>
+  <input type="submit" value="Log in"/>
+  <input type="hidden" name="next" value="{{ next }}" />
+
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="#">Lost password?</a></p>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "crowdshipping/header.html" %}
+
+{% block content %}
+
+<form action="/sign_up/success/" method="post">
+    {% csrf_token %}
+<div>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</div>
+<div>
+  <td>{{ form.first_name.label_tag }}</td>
+  <td>{{ form.first_name }}</td>
+</div>
+
+<div>
+  <td>{{ form.last_name.label_tag }}</td>
+  <td>{{ form.last_name }}</td>
+</div>
+
+<div>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</div>
+
+<div>
+  <td>{{ form.email.label_tag }}</td>
+  <td>{{ form.email }}</td>
+</div>
+
+<div>
+  <td>{{ form.phone.label_tag }}</td>
+  <td>{{ form.phone }}</td>
+</div>
+
+<div>
+  <td>{{ form.street.label_tag }}</td>
+  <td>{{ form.street }}</td>
+</div>
+
+<div>
+  <td>{{ form.city.label_tag }}</td>
+  <td>{{ form.city }}</td>
+</div>
+
+<div>
+  <td>{{ form.state.label_tag }}</td>
+  <td>{{ form.state }}</td>
+</div>
+
+<div>
+  <td>{{ form.zip_code.label_tag }}</td>
+  <td>{{ form.zip_code }}</td>
+</div>
+
+<div>
+  <input type="submit" value="Sign Up" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<h1> Results </h1>
+
+<ul>
+{% for excel in excel_list %}
+    <li>{{ excel }} comes from excel</li>
+{% endfor %}
+</ul>
+
+
+<ul>
+{% for web in web_list %}
+    <li>{{ web }} comes from web</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'demo:index' %}">Try Again?</a>

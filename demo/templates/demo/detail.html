@@ -1,0 +1,17 @@
+<h1>Test</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/demo/{{ number.id }}/vote/" method="post">
+{% csrf_token %}
+
+    <input type="number" name="number1" id="choice1" /><br>
+
+    <label for="choice1">  Number 1: </label><br />
+
+    <input type="number" name="number2" id="choice2" /><br>
+
+    <label for="choice2">  Number 2: </label><br />
+
+<input type="submit" value="Calculate" />
+</form>

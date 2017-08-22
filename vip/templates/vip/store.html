@@ -1,0 +1,42 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'crowdshipping/css/btn-yellow.css' %}">
+	<center>
+	<img src="{% static 'crowdshipping/img/vip.png' %}" class="responsive-img" style='height:50px;width:150px;' alt="VIP">
+	</center>
+	<br>
+    <div class="container-fluid">
+
+    {% if item_by_store %}
+
+        {% for item in item_by_store %}
+        <div class="thumbnail">
+            
+            <div class="row">
+
+                <div class="col-xs-3">
+
+                <img src="/vip/media/{{ item.image }}" class="img-responsive" alt="{{ item.name }}" align="left">
+                </div>
+
+                <div class="col-xs-9">
+                <h4 style="font-weight:bold">{{ item.name }}</h4>
+                <p>${{ item.price }}</p>
+				<p>{{ item.description }}</p>
+                    <a href="/cart/" class="btn-yellow"><span>Add to cart</span></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+        <p>Nothing currently available.</p>
+    {% endif %}
+
+    </div>
+
+{% endblock %}

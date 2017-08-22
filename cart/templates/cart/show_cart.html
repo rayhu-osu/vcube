@@ -1,0 +1,61 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'crowdshipping/css/btn-yellow.css' %}">
+
+	<img src="{% static 'crowdshipping/img/vip.png' %}" class="responsive-img" style='height:50px;width:150px;display:block;margin-left: auto;margin-right: auto;' alt="VIP">
+	<br>
+    <div class="container-fluid">
+
+    {% if item_list %}
+        {% for item in item_list %}
+            <div class="thumbnail">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="{{ item.image.url }}" class="img-responsive" alt="{{ item.name }}" align="left">
+                    </div>
+                    <div class="col-xs-9">
+						<h4 style="font-weight:bold">{{ item.name }}</h4>
+						<p>${{ item.price }}</p>
+						<p>{{item.description}}</p>
+						
+						<select>
+							<option value=1>1</option>
+							<option value=2>2</option>
+							<option value=3>3</option>
+							<option value=4>4</option>
+							<option value=5>5</option>
+						</select>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        {% endfor %}
+		
+		<div class="col-xs-10"></div>
+		
+		<div class="col-xs-2">
+            <a href="#" class="btn-yellow"><span>Check Out</span></a>
+		</div>
+	
+
+    {% else %}
+        <p>No items are available.</p>
+    {% endif %}
+
+
+    </div>
+
+<script>
+
+$(".deleteMe").on("click", function(){
+   $(this).closest("p").remove(); 
+});
+
+</script>
+{% endblock %}

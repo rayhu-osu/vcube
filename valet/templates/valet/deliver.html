@@ -1,0 +1,53 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+	<img src="{% static 'crowdshipping/img/valet.png' %}" class="responsive-img" style='height:50px;width:160px;display: block;margin: auto' alt="Valet">
+	<br>
+
+    <h4>Overview</h4>
+    <h5>Current time: {% now "F jS Y H:i" %}.</h5>
+    <h5>Total number of consumers to deliver: {{ selected_consumer|length }}.</h5>
+    <h5>Total number of orders: {{ order_num }}.</h5>
+
+    <div class="container-fluid">
+
+        {% for consumer in selected_consumer %}
+
+            <div class="thumbnail">
+
+            <div class="row">
+
+                {% comment %}
+                <div class="col-xs-2">
+
+                </div>
+                {% endcomment %}
+
+                <div class="col-xs-10">
+                    <p>Consumer ID: {{ consumer.username }} | Phone: {{ consumer.phone }}</p>
+                    <p>Address: {{ consumer.street }}, {{ consumer.city }}, {{ consumer.state }}, {{ consumer.zip_code }}</p>
+
+                    <a href="{% url 'valet:deliver_detail' driver_id consumer.id %}" class="btn-yellow"><span>Detail</span></a>
+                </div>
+            </div>
+
+            </div>
+
+            <p style="text-align: center; font-size: 20px;">&#8675;</p>
+        
+        {% empty %}
+            <p>No orders available.</p>
+        {% endfor %}
+    <div class="wrapper">
+        <a href="{% url 'valet:index' driver_id %}" class="btn-yellow" style=""><span>Complete!</span></a>
+    </div>
+
+    </div>
+<style>
+.wrapper{
+    text-align: center;
+}
+{% include "crowdshipping/includes/btn-yellow.css" %}
+</style>
+
+{% endblock %}

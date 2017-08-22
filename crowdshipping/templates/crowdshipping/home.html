@@ -1,0 +1,74 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+.odd {
+   margin: 10px;
+   padding: 10px;
+   max-width: 100%;
+   height: 210px;
+    opacity: 0.7;
+    background-color: #FBFCFC;
+}
+.even {
+   margin: 10px;
+   padding: 10px;
+   max-width: 100%;
+   height: 210px;
+    opacity: 0.7;
+    background-color: #FBFCFC;
+}
+.works {
+    background-image: url("{% static 'crowdshipping/img/city1.jpg' %}");
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.description{
+    font-size: medium;
+}
+</style>
+
+    <section class="works">
+        <br>
+        <h2 align="middle" style="color: white;">How it works?</h2>
+        <div class="odd">
+            <h2>VIP</h2>
+            <p class="description">As a consumer, you're our VIP.</p>
+        </div>
+
+        <div class="even">
+            <h2 align="right">Vendor</h2>
+            <p align="right" class="description">As a store, you'll be our precious vendor.</p>
+        </div>
+
+        <div class="odd">
+            <h2>Valet</h2>
+            <p class="description">Want to make some money on your way to work? Sign up to be our Valet.</p>
+        </div>
+    <br>
+    <br>
+    </section>
+    <hr>
+    <section>
+        <h2 align="middle">Popular Items</h2>
+        {% if item_list %}
+            <div class="thumbnail">
+                <div class="row">
+                    {% for item in item_list|slice:"2:14" %}
+                        <div class="col-xs-2">
+                            <a href="#">
+                                <img src="/vip/media/{{ item.image }}" class="img-responsive" alt="{{ item.name }}" align="left">
+                                <p align="middle">{{ item.name }}, as low as: ${{ item.price }}</p>
+                            </a>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <p>Nothing available.</p>
+        {% endif %}
+    </section>
+{% endblock %}

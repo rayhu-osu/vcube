@@ -1,0 +1,82 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+	<img src="{% static 'crowdshipping/img/valet.png' %}" class="responsive-img" style='height:50px;width:160px;display: block;margin: auto' alt="Valet">
+	<br>
+
+    <h4>Overview</h4>
+    <h5>Current time: {% now "jS F Y H:i" %}.</h5>
+    <h5>Total Number of items: {{ item_list|length }}</h5>
+
+    <div class="container-fluid">
+
+        {% for item in item_list %}
+
+            <div class="thumbnail">
+
+            <div class="row">
+
+                <div class="col-xs-2">
+                    <img src="/valet/media/{{ item.image }}" class="img-responsive" alt="{{ item.name }}" align="bottom">
+
+                </div>
+
+                <div class="col-xs-8">
+
+                    <p>Item: {{ item.name }}</p>
+                    {% for order in item.order_set.all %}
+
+
+                        <p>Order #: {{ order.id }} | Consumer ID: {{ order.consumer }}</p>
+                    {% endfor %}
+                </div>
+
+                <div class="col-xs-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Picked
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            </div>
+
+        
+        {% empty %}
+            <p>No orders available.</p>
+        {% endfor %}
+
+    <a href="{% url 'valet:order' driver_id %}" class="btn-yellow"><span>DONE</span></a>
+	<br>
+    </div>
+
+    <style>
+
+label {
+    display: block;
+    position: relative;
+    font-size: 15px;
+    vertical-align: middle;
+
+}
+input {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin:0;
+    top:-4px;
+  vertical-align: middle;
+  position: relative;
+  *overflow: hidden;
+}
+input:checked {
+    height: 25px;
+    width: 25px;
+}
+    {% include "crowdshipping/includes/btn-yellow.css" %}
+    </style>
+
+{% endblock %}

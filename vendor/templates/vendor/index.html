@@ -1,0 +1,16 @@
+{% extends "crowdshipping/header.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'crowdshipping/css/btn-yellow.css' %}">
+
+	<img src="{% static 'crowdshipping/img/vendor.png' %}" class="responsive-img" style='height:50px;width:220px;display:block;margin-left:auto;margin-right: auto;' alt="VIP">
+    <div class="container-fluid">
+
+        <a href="inventory" class="btn-yellow"><span>Show Inventory</span></a>
+
+        <a href="order" class="btn-yellow"><span>Show Orders</span></a>
+
+    </div>
+
+
+{% endblock %}
