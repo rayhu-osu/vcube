@@ -21,10 +21,7 @@ from django.conf import settings
 urlpatterns = [
         url(r'^admin/', admin.site.urls),
         url(r'^', include('crowdshipping.urls')),
-        url(r'^blog/', include('blog.urls')),
-        url(r'^demo/', include('demo.urls')),
         url(r'^vip/', include('vip.urls')),
-        url(r'^copydata/', include('copydata.urls')),
         url(r'^sign_up/', include('sign_up.urls')),
         url(r'^cart/', include('cart.urls')),
         url(r'^valet/', include('valet.urls')),
