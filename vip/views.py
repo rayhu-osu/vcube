@@ -3,8 +3,6 @@ from vendor.models import Store
 from django.shortcuts import get_object_or_404, render
 # from django.db.models import prefetch_related_objects
 
-def register(request):
-    return render(request, 'register/register.html')
 
 def index(request):
     item_list = Item.objects.all()
