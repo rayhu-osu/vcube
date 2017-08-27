@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .forms import ConsumerForm, StoreForm, LoginForm
 from django.http import HttpResponseRedirect
 
-
 def register(request):
     return render(request, 'sign_up/register.html')
 
