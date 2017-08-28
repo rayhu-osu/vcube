@@ -133,7 +133,10 @@ USE_TZ = True
 # STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static') '''should not use it'''
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'media')
 
+
 AWS_STORAGE_BUCKET_NAME = 'vcube-static'
+AWS_ACCESS_KEY_ID = 'AKIAJWRYYSDSRJUUVYCA'
+AWS_SECRET_ACCESS_KEY = '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'
 # Tell django-storages that when coming up with the URL for an item in S3 storage, keep
 # it simple - just use this domain plus the path. (If this isn't set, things get complicated).
 # This controls how the `static` template tag from `staticfiles` gets expanded, if you're using it.
@@ -150,7 +153,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
+# This is used by the `static` template tag from `static`, if you're using that. Or if anything else
+# refers directly to STATIC_URL. So it's safest to always set it.
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
@@ -164,7 +169,11 @@ DATABASES['default'].update(db_from_env)
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
+# you run `collectstatic`).
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 # set picture cache to expire much later
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
