@@ -14,7 +14,7 @@ class Category(models.Model):
             (ELECTRONIC, 'Electronics'), (FOOD,'Food and Drinks'),
             (GROCERY, 'Grocery'), (HOME, 'Home'),
     )
-    image = models.ImageField(upload_to='img/')
+    image = models.ImageField(upload_to='img')
     name = models.CharField(max_length=30, choices=CATEGORY_CHOICES)
     id = models.AutoField(primary_key=True)
     def __str__(self):
@@ -23,7 +23,7 @@ class Category(models.Model):
 
 class Item (models.Model):
     id = models.AutoField(primary_key=True)
-    image = models.ImageField(upload_to='img/')
+    image = models.ImageField(upload_to='img')
     name = models.CharField(max_length = 100, unique=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT) # key
     price = models.DecimalField(max_digits=10, decimal_places=2)
