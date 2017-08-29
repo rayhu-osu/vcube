@@ -130,9 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-# STATIC_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static') '''should not use it'''
-MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'media')
-
+# MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'media')
 
 AWS_STORAGE_BUCKET_NAME = 'vcube-static'
 AWS_ACCESS_KEY_ID = 'AKIAJWRYYSDSRJUUVYCA'
@@ -148,9 +146,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-# This is used by the `static` template tag from `static`, if you're using that. Or if anything else
-# refers directly to STATIC_URL. So it's safest to always set it.
-# STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
@@ -167,10 +163,16 @@ DATABASES['default'].update(db_from_env)
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_LOCATION = 'static'
-# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
+# Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
 # you run `collectstatic`).
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+
+MEDIAFILES_LOCATION = 'media'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
 
 # set picture cache to expire much later
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
@@ -178,11 +180,3 @@ AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
     'Cache-Control': 'max-age=94608000',
 }
 
-# The following two lines is just a compromise because here we only use s3 to handle user uploaded files
-# don't do this in real deployment when handle both static files and user uploaded files.
-#MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-MEDIAFILES_LOCATION = 'media'
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
