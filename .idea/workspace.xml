@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa80f3eb-36b4-49cc-81ba-11d952604c47" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vip/urls.py" afterPath="$PROJECT_DIR$/vip/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/templates/vendor/inventory.html" afterPath="$PROJECT_DIR$/vendor/templates/vendor/inventory.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -87,17 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vip/templates/vip/category.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vip/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-10">
@@ -105,6 +95,16 @@
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inventory.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vendor/templates/vendor/inventory.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,7 +178,6 @@
         <option value="$PROJECT_DIR$/cart/admin.py" />
         <option value="$PROJECT_DIR$/vendor/urls.py" />
         <option value="$PROJECT_DIR$/vendor/models.py" />
-        <option value="$PROJECT_DIR$/vendor/templates/vendor/inventory.html" />
         <option value="$PROJECT_DIR$/cart/models.py" />
         <option value="$PROJECT_DIR$/crowdshipping/templates/crowdshipping/includes/btn.css" />
         <option value="$PROJECT_DIR$/sign_up/models.py" />
@@ -226,6 +225,7 @@
         <option value="$PROJECT_DIR$/valet/templates/valet/order.html" />
         <option value="$PROJECT_DIR$/crowdshipping/templates/crowdshipping/home.html" />
         <option value="$PROJECT_DIR$/vip/urls.py" />
+        <option value="$PROJECT_DIR$/vendor/templates/vendor/inventory.html" />
       </list>
     </option>
   </component>
@@ -354,6 +354,19 @@
             <path>
               <item name="vcube" type="b2602c69:ProjectViewProjectNode" />
               <item name="vcube" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vcube" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vcube" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vcube" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vcube" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -664,13 +677,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/crowdshipping/static/crowdshipping/css/availability.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vip/templates/vip/detail.html" />
     <entry file="file://$PROJECT_DIR$/crowdshipping/templates/crowdshipping/includes/btn-yellow.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1055,6 +1061,14 @@
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/templates/vendor/inventory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
