@@ -19,7 +19,7 @@
 
                 <div class="col-xs-2">
                     <a href="{% url 'vip:store' store.id %}">
-                    <img src="/valet/media/{{ store.image }}" class="img-responsive" alt="{{ store.name }}" align="bottom">
+                    <img src="{{ store.image.url }}" class="img-responsive" alt="{{ store.name }}" align="bottom">
                     </a>
 
                 </div>

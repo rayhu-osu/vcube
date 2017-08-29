@@ -28,6 +28,6 @@ def store(request, store_id):
 
     return render(request, 'vip/store.html', context)
 
-def detail(request, item_id):
-    item = get_object_or_404 (Item, pk = item_id)
-    return render(request, 'vip/detail.html', {'item': item})
+# def detail(request, item_id):
+#     item = get_object_or_404 (Item, pk = item_id)
+#     return render(request, 'vip/detail.html', {'item': item})
