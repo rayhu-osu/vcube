@@ -14,7 +14,7 @@ def index(request, driver_id):
 def availability(request, driver_id):
     #item_list = Item.objects.all()
     context = {'driver_id': driver_id}
-    return render(request, 'valet/availabilit2y.html', context)
+    return render(request, 'valet/availability.html', context)
 
 
 # order view shows the store sequence

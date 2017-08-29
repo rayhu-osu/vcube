@@ -33,7 +33,7 @@
 
             <div class="row">
 
-                {% for store in store_list %}
+                {% for store in store_list reversed %}
 
                 <div class="col-xs-2">
                     <a href="{% url 'vip:store' store.id %}">
