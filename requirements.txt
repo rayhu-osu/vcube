@@ -4,3 +4,5 @@ Django==1.11.4
 gunicorn==19.7.1
 whitenoise==3.3.0
 Pillow==4.2.1
+django-storages==1.6.5
+boto3==1.4.6
