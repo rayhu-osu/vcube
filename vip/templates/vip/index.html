@@ -13,7 +13,7 @@
                     {% for item in item_list|slice:":" %}
                         <div class="col-xs-2">
                             <a href="#">
-                                <img src="/vip/media/{{ item.image }}" class="img-responsive" alt="{{ item.name }}" align="left">
+                                <img src="{{ item.image.url }}" class="img-responsive" alt="{{ item.name }}" align="left">
                                 <p align="middle">{{ item.name }}, as low as: ${{ item.price }}</p>
                             </a>
 
