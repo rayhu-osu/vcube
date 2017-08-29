@@ -56,7 +56,7 @@
         {% if item_list %}
             <div class="thumbnail">
                 <div class="row">
-                    {% for item in item_list|slice:":" %}
+                    {% for item in item_list|slice:"2:14" %}
                         <div class="col-xs-2">
                             <a href="#">
                                 <img src="{{ item.image.url }}" class="img-responsive" alt="{{ item.name }}" align="left">
